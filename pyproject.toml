@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "envbase"
+version = "1.0.0"
+description = "Pydantic settings with class name prefixes and per environment dotenv files"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "Parker" }]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Framework :: Pydantic :: 2",
+]
+dependencies = ["pydantic-settings>=2.4"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=5"]
+
+[project.urls]
+Homepage = "https://github.com/parkermmr/envbase"
+Issues = "https://github.com/parkermmr/envbase/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/envbase"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["envbase"]
+branch = true
